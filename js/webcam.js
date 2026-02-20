@@ -11,7 +11,7 @@ async function initWebcam() {
 
     return new Promise((resolve) => {
         AppState.videoElement.onloadedmetadata = () => {
-            initializeLayout();
+            updateCanvasSize();
             resolve(AppState.videoElement);
         };
     });

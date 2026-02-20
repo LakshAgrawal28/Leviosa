@@ -15,41 +15,27 @@
         <div id="three-canvas"></div>
     </div>
 
-    <!-- Info panel -->
-    <div id="info-panel">
-        <button id="info-tab" onclick="document.getElementById('info-panel').classList.toggle('open')" aria-label="Toggle info panel">&#9432;</button>
-
-        <div id="info-content">
-            <section class="info-section">
-                <h2>About</h2>
-                <p class="info-name">Laksh Agrawal</p>
-                <div class="info-links">
-                    <a href="https://github.com/LakshAgrawal28" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/laksh-agrawal-873598324/" target="_blank">LinkedIn</a>
+    <!-- Info button -->
+    <button id="info-btn" onclick="document.getElementById('info-popup').classList.toggle('visible')" aria-label="Info">i</button>
+    <div id="info-popup">
+        <div class="info-header">
+            <div class="info-top">
+                <img src="https://github.com/LakshAgrawal28.png" alt="Laksh Agrawal" class="info-avatar">
+                <div class="info-text">
+                    <p class="info-name">Laksh Agrawal</p>
+                    <div class="info-links">
+                        <a href="https://github.com/LakshAgrawal28" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/laksh-agrawal-873598324/" target="_blank">LinkedIn</a>
+                    </div>
                 </div>
-                <p class="info-bio">Made with ❤️ by Laksh Agrawal</p>
-            </section>
-
-            <section class="info-section">
-                <h2>Controls</h2>
-                <div class="gesture-row">
-                    <span class="gesture-hand">Left open</span>
-                    <span class="gesture-desc">Rotate shape</span>
-                </div>
-                <div class="gesture-row">
-                    <span class="gesture-hand">Left fist</span>
-                    <span class="gesture-desc">Cycle shapes</span>
-                </div>
-                <div class="gesture-row">
-                    <span class="gesture-hand">Right open</span>
-                    <span class="gesture-desc">Pinch to resize</span>
-                </div>
-                <div class="gesture-row">
-                    <span class="gesture-hand">Right fist</span>
-                    <span class="gesture-desc">Random color</span>
-                </div>
-            </section>
+            </div>
+            <p class="info-bio">Made with ❤️ by Laksh Agrawal</p>
         </div>
+        <hr class="info-divider">
+        <div class="gesture-row"><span>Left open</span><span>Rotate</span></div>
+        <div class="gesture-row"><span>Left fist</span><span>Cycle shapes</span></div>
+        <div class="gesture-row"><span>Right open</span><span>Pinch to resize</span></div>
+        <div class="gesture-row"><span>Right fist</span><span>Random color</span></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
