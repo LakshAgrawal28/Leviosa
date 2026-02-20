@@ -1,80 +1,66 @@
-# 3D Hand Tracking Demo
+# Leviosa
 
-A threejs / WebGL / MediaPipe-powered interactive demo that allows you to control a 3D sphere using hand gestures.
+> *Wingardium Leviosa, but make it WebGL.*
 
-<img src="demo.png">
+Control and sculpt 3D shapes in real time using just your hands — no wand required. Built with MediaPipe hand tracking and Three.js.
 
 ## Demo
 
-Try the live demo: [https://collidingscopes.github.io/threejs-handtracking-101/](https://collidingscopes.github.io/threejs-handtracking-101/)
+<!-- Add your live demo link here once deployed -->
 
 ## Features
 
-- **Real-time hand tracking** using MediaPipe Hands
-- **Left hand gesture control:** Pinch thumb and index finger to resize the 3D sphere
-- **Right hand interaction:** Touch the sphere with your index finger to change its color
-- **Responsive design** that works on desktop and mobile browsers
-- **Visual feedback** with color-coded hand tracking
+- Real-time hand tracking via MediaPipe Hands (runs entirely in the browser)
+- Left hand open — rotate the shape by rotating your hand
+- Left fist — cycle through shapes
+- Right hand open — pinch to resize
+- Right fist — randomise the color
+- Configurable shapes, colors, and animation via `config.js`
 
 ## Requirements
 
-- Modern web browser with WebGL support
-- Camera access
-- No additional software or downloads needed
+- Modern browser with WebGL support
+- Webcam access
+- No installs needed — runs entirely in the browser
 
 ## Technologies
 
-- **Three.js** for 3D rendering
-- **MediaPipe** for hand tracking and gesture recognition
-- **HTML5 Canvas** for visual feedback
-- **JavaScript** for real-time interaction
+- [Three.js](https://threejs.org/) — 3D rendering
+- [MediaPipe Hands](https://mediapipe.dev/) — hand tracking and landmark detection
+- Vanilla JavaScript, HTML5 Canvas, WebRTC
 
-## Setup for Development
+## Setup
 
 ```bash
-# Clone this repository
-git clone https://github.com/collidingScopes/threejs-handtracking-101
-
-# Navigate to the project directory
-cd threejs-handtracking-101
-
-# Serve with your preferred method (example using Python)
+git clone https://github.com/LakshAgrawal28/Leviosa
+cd Leviosa
 python -m http.server
 ```
 
-Then navigate to `http://localhost:8000` in your browser.
+Open `http://localhost:8000` in your browser.
+
+## Project Structure
+
+```
+config.js        — shape, color, and animation settings
+style.css        — all styles
+js/
+  state.js       — shared app state
+  layout.js      — canvas sizing and resize handling
+  webcam.js      — webcam initialisation
+  gestures.js    — gesture math (fist, pinch, rotation)
+  scene.js       — Three.js scene, shapes, animation loop
+  mediapipe.js   — MediaPipe setup, landmark drawing, hand logic
+  main.js        — entry point
+docs/
+  CONTROLS.md          — gesture reference
+  TECHNICAL_DOCUMENTATION.md — architecture and implementation notes
+```
 
 ## License
 
-MIT License
+MIT — see [LICENSE](LICENSE).
 
 ## Credits
 
-- Three.js - https://threejs.org/
-- MediaPipe - https://mediapipe.dev/
-
-## Related Projects
-
-Check out other free and open-source projects by the same developer:
-
-- [Particular Drift](https://collidingScopes.github.io/particular-drift) - Turn photos into flowing particle animations
-- [Liquid Logo](https://collidingScopes.github.io/liquid-logo) - Transform logos and icons into liquid metal animations
-- [Video-to-ASCII](https://collidingScopes.github.io/ascii) - Convert videos into ASCII pixel art
-- [Shape Shimmer](https://collidingScopes.github.io/shimmer) - Turn photos into funky wave animations
-- [Colliding Scopes](https://collidingScopes.github.io) - Turn photos into kaleidoscope animations
-- [Manual Brick Breaker](https://manual-brick-breaker.netlify.app) - Play brick breaker by waving your hands around
-
-## Contact
-
-- Instagram: [@stereo.drift](https://www.instagram.com/stereo.drift/)
-- Twitter/X: [@measure_plan](https://x.com/measure_plan)
-- Email: [stereodriftvisuals@gmail.com](mailto:stereodriftvisuals@gmail.com)
-- GitHub: [collidingScopes](https://github.com/collidingScopes)
-
-## Donations
-
-If you found this tool useful, feel free to buy me a coffee. 
-
-My name is Alan, and I enjoy building open source software for art, animation, games, and more. This would be much appreciated during late-night coding sessions!
-
-[![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/stereoDrift)
+Based on [threejs-handtracking-101](https://github.com/collidingScopes/threejs-handtracking-101) by Alan (collidingScopes), released under MIT License.
