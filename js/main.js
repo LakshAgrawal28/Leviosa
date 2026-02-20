@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
 
         cam.start();
+        document.getElementById('loader').style.display = 'none';
     } catch (error) {
         console.error('Error starting application:', error);
     }
