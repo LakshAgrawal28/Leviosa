@@ -3,10 +3,6 @@ function updateCanvasSize() {
     AppState.canvasElement.height = window.innerHeight;
 }
 
-function initializeLayout() {
-    updateCanvasSize();
-}
-
 function initResizeHandler() {
     window.addEventListener('resize', () => {
         initializeLayout();

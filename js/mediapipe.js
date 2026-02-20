@@ -60,8 +60,6 @@ function onResults(results) {
         updateCanvasSize();
     }
 
-    AppState.rightHandActive = false;
-    AppState.leftHandActive = false;
     AppState.handRotationActive = false;
 
     if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
@@ -99,8 +97,6 @@ function _handleRightHand(landmarks) {
             AppState.sphere.scale.setScalar(AppState.currentSphereSize);
         }
     }
-
-    AppState.rightHandActive = true;
 }
 
 function _handleLeftHand(landmarks) {
@@ -118,6 +114,4 @@ function _handleLeftHand(landmarks) {
         AppState.targetRotationZ = r.z;
         AppState.handRotationActive = true;
     }
-
-    AppState.leftHandActive = true;
 }

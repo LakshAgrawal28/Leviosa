@@ -45,19 +45,3 @@ function calculateHandRotation(landmarks) {
     return { x: rotationX * s, y: rotationY * s, z: rotationZ * s };
 }
 
-function isPointInSphere(point) {
-    const worldX = (point.x - 0.5) * 10;
-    const worldY = (0.5 - point.y) * 10;
-    const worldZ = 0;
-
-    const spherePos = new THREE.Vector3();
-    AppState.sphere.getWorldPosition(spherePos);
-
-    const distance = Math.sqrt(
-        Math.pow(worldX - spherePos.x, 2) +
-        Math.pow(worldY - spherePos.y, 2) +
-        Math.pow(worldZ - spherePos.z, 2)
-    );
-
-    return distance < AppState.sphere.scale.x * 2;
-}

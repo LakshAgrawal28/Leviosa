@@ -15,8 +15,6 @@ const AppState = {
     wireframeMesh: null,
 
     // Hand tracking flags
-    rightHandActive: false,
-    leftHandActive: false,
     handRotationActive: false,
 
     // Gesture cooldowns

@@ -1,5 +1,4 @@
 const CONFIG = {
-    
     shape: {
         // type: 'box',
         type: 'sphere',

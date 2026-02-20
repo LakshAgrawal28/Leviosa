@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     AppState.currentShapeIndex = CONFIG.availableShapes.indexOf(CONFIG.shape.type);
 
     initResizeHandler();
-    initializeLayout();
+    updateCanvasSize();
 
     try {
         await initWebcam();
