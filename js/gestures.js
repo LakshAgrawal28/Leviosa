@@ -17,6 +17,18 @@ function isHandClosed(landmarks) {
     );
 }
 
+function isHandOpen(landmarks) {
+    const palm = landmarks[0];
+    const threshold = 0.22; // higher threshold — must be clearly open to reset
+
+    return (
+        calculateDistance(palm, landmarks[8])  > threshold ||
+        calculateDistance(palm, landmarks[12]) > threshold ||
+        calculateDistance(palm, landmarks[16]) > threshold ||
+        calculateDistance(palm, landmarks[20]) > threshold
+    );
+}
+
 function calculateHandRotation(landmarks) {
     const wrist      = landmarks[0];
     const indexBase  = landmarks[5];

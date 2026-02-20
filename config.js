@@ -54,10 +54,10 @@ const CONFIG = {
         y: 0.001, // Auto-rotation speed on Y axis
 
         handControl: {
-            enabled: true,
-            smoothing: 0.15,          // 0-1, lower = smoother
-            sensitivity: 2.0,
-            disableAutoRotation: true // Pause auto-rotation while hand is controlling
+            enabled: false,
+            smoothing: 0.05,          // 0-1, lower = smoother
+            sensitivity: 0.35,
+            disableAutoRotation: false // Pause auto-rotation while hand is controlling
         }
     },
 

@@ -73,6 +73,22 @@ function onResults(results) {
 
 function _handleRightHand(landmarks) {
     if (isHandClosed(landmarks)) {
+        // Right fist: cycle shapes (once per fist, with cooldown backup)
+        const now = Date.now();
+        if (!AppState.rightFistActive && now - AppState.lastShapeChangeTime > 600) {
+            AppState.rightFistActive = true;
+            AppState.lastShapeChangeTime = now;
+            AppState.currentShapeIndex = (AppState.currentShapeIndex + 1) % CONFIG.availableShapes.length;
+            changeShape(CONFIG.availableShapes[AppState.currentShapeIndex]);
+        }
+    } else if (isHandOpen(landmarks)) {
+        AppState.rightFistActive = false;
+    }
+}
+
+function _handleLeftHand(landmarks) {
+    if (isHandClosed(landmarks)) {
+        // Left fist: random color (with cooldown)
         const now = Date.now();
         if (now - AppState.lastColorChangeTime > AppState.colorChangeDelay) {
             if (AppState.solidMesh) {
@@ -81,8 +97,8 @@ function _handleRightHand(landmarks) {
             AppState.lastColorChangeTime = now;
         }
     } else {
+        // Left open: pinch to resize
         const pinchDist = calculateDistance(landmarks[4], landmarks[8]);
-
         if (pinchDist < 0.05) {
             AppState.targetSphereSize = 0.2;
         } else if (pinchDist > 0.25) {
@@ -90,28 +106,9 @@ function _handleRightHand(landmarks) {
         } else {
             AppState.targetSphereSize = 0.2 + (pinchDist - 0.05) * (2.0 - 0.2) / (0.25 - 0.05);
         }
-
         AppState.currentSphereSize += (AppState.targetSphereSize - AppState.currentSphereSize) * AppState.smoothingFactor;
-
         if (AppState.sphere) {
             AppState.sphere.scale.setScalar(AppState.currentSphereSize);
         }
-    }
-}
-
-function _handleLeftHand(landmarks) {
-    if (isHandClosed(landmarks)) {
-        const now = Date.now();
-        if (now - AppState.lastShapeChangeTime > AppState.shapeChangeDelay) {
-            AppState.currentShapeIndex = (AppState.currentShapeIndex + 1) % CONFIG.availableShapes.length;
-            changeShape(CONFIG.availableShapes[AppState.currentShapeIndex]);
-            AppState.lastShapeChangeTime = now;
-        }
-    } else if (CONFIG.rotation.handControl.enabled) {
-        const r = calculateHandRotation(landmarks);
-        AppState.targetRotationX = r.x;
-        AppState.targetRotationY = r.y;
-        AppState.targetRotationZ = r.z;
-        AppState.handRotationActive = true;
     }
 }

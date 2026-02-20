@@ -23,6 +23,9 @@ const AppState = {
     colorChangeDelay: 500,  // ms
     shapeChangeDelay: 500,  // ms
 
+    // Gesture edge detection
+    rightFistActive: false,  // true while fist is held, prevents repeat shape cycling
+
     // Size control
     currentSphereSize: 1.0,
     targetSphereSize: 1.0,
