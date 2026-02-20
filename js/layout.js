@@ -5,7 +5,7 @@ function updateCanvasSize() {
 
 function initResizeHandler() {
     window.addEventListener('resize', () => {
-        initializeLayout();
+        updateCanvasSize();
         if (AppState.renderer) {
             AppState.renderer.setSize(window.innerWidth, window.innerHeight);
         }

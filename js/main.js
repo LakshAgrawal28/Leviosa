@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     initResizeHandler();
     updateCanvasSize();
+    initThreeJS();
 
     try {
         await initWebcam();
-        initThreeJS();
 
         const hands = await initMediaPipeHands();
         hands.onResults(onResults);
