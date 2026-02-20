@@ -62,7 +62,12 @@ function onResults(results) {
 
     AppState.handRotationActive = false;
 
-    if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) return;
+    const hint = document.getElementById('hands-hint');
+    if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) {
+        if (hint) hint.classList.add('visible');
+        return;
+    }
+    if (hint) hint.classList.remove('visible');
 
     results.multiHandLandmarks.forEach((landmarks, i) => {
         const isLeftHand = results.multiHandedness[i].label === 'Left';
