@@ -11,7 +11,6 @@ Control and sculpt 3D shapes in real time using just your hands — no wand requ
 ## Features
 
 - Real-time hand tracking via MediaPipe Hands (runs entirely in the browser)
-- Left hand open — rotate the shape by rotating your hand
 - Left fist — cycle through shapes
 - Right hand open — pinch to resize
 - Right fist — randomise the color
